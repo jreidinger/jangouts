@@ -24,6 +24,7 @@
       isConsentDialogOpen: null
     };
     $scope.enter = enter;
+    $scope.testForce = testForce;
 
     $scope.enter();
 
@@ -48,6 +49,12 @@
       UserService.currentUser().then(function (user) {
         RoomService.enter(user.username);
       });
+    }
+
+    function testForce() {
+      console.log("Testforce");
+      RoomService.forceRoomBitrate();
+      console.log("y tal");
     }
   }
 })();

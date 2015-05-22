@@ -79,6 +79,7 @@
       }
 
       function isVideoVisible() {
+        console.log(vm.feed.pluginHandle.getBitrate());
         return (vm.feed.videoEnabled && vm.feed.hasVideo());
       }
 

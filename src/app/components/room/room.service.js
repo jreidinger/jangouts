@@ -25,6 +25,7 @@
     this.unPublishFeed = unPublishFeed;
     this.subscribeToFeeds = subscribeToFeeds;
     this.createRemoteFeed = createRemoteFeed;
+    this.forceRoomBitrate = forceRoomBitrate;
     this.room = null;
     this.janus = null;
 
@@ -401,6 +402,13 @@
           ScreenShareService.showHelp();
         }
       });
+    }
+
+    function forceRoomBitrate() {
+      var handle = FeedsService.findMain().pluginHandle;
+      //var configure = { "request": "configure", "bitrate": this.getRoom().bitrate};
+      var configure = { "request": "configure", "bitrate": 128000};
+      handle.send({"message": configure});
     }
 
     function observeAudio(feed) {
